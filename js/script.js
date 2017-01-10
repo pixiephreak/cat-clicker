@@ -30,8 +30,8 @@ for (var i = 0; i < cats.length; i++) {
     var pic = document.createElement('div');
     var img = `<img alt="bear${(i+1)}" src="${cat}"/>`;
     console.log(img);
-
-    $(pic).prepend(img);
+    var link = `cat ${i+1}`;
+    $(pic).prepend(link);
 
     var h1 = '<h1 id="counter'+[i+1]+'"'+'>'+'</h1>';
     $(pic).prepend(h1);
@@ -41,6 +41,7 @@ for (var i = 0; i < cats.length; i++) {
     pic.addEventListener('click', (function() {
         clicks[i]+=1;
         $('#counter'+[i]).text("BEAR COUNT:"+clicks[i]);
+        $(pic).prepend(img);
     }));
 
     // finally, let's add this element to the document
