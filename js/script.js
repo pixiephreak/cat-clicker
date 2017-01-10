@@ -25,18 +25,19 @@ for (var i = 0; i < cats.length; i++) {
     // This is the number we're on...
     var cat = cats[i];
     console.log(cat);
+
     // We're creating a DOM element for the pic and counter
     var pic = document.createElement('div');
-    var src = '<img src='+'"'+cat+'"'+'/>'
-    console.log(src)
-    $(pic).prepend(src);
+    var img = `<img alt="bear${(i+1)}" src="${cat}"/>`;
+    console.log(img);
+
+    $(pic).prepend(img);
 
     var h1 = '<h1 id="counter'+[i+1]+'"'+'>'+'</h1>';
-    console.log(h1);
     $(pic).prepend(h1);
 
     // ... and when we click, increment click num
-
+    //TO-DO add IF
     pic.addEventListener('click', (function() {
         clicks[i]+=1;
         $('#counter'+[i]).text("BEAR COUNT:"+clicks[i]);
